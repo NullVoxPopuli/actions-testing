@@ -38,6 +38,18 @@ jobs:
           node-version-file: package.json
       - run: node --version
 
+  aaaa:
+    name: 'nvp/setup-node (with node-version-file: empty package.json)'
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      # clear the package.json
+      - run: 'echo "{ \"name\": \"test\" }" > package.json'
+      - uses: NullVoxPopuli/setup-node@fix-864-testing
+        with:
+          node-version-file: package.json
+      - run: node --version
+
   b:
     name: 'wyvox/action-setup-pnpm'
     runs-on: ubuntu-latest
