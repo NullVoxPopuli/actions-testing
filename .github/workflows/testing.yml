@@ -40,7 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # clear the package.json
-      - run: '"{}" > package.json'
+      - run: 'echo "{}" > package.json'
       - uses: wyvox/action-setup-pnpm@change-default-node-version-file-to-package.json
       - run: node --version
 
