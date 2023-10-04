@@ -8,7 +8,7 @@ on:
   pull_request: {}
 
 jobs:
-  aa:
+  a:
     name: 'actions/setup-node (default)'
     runs-on: ubuntu-latest
     steps: 
@@ -16,11 +16,23 @@ jobs:
       - uses: actions/setup-node@v3
       - run: node --version
 
-  a:
+  aa:
     name: 'actions/setup-node (with node-version-file: package.json)'
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: package.json
+      - run: node --version
+
+  aaa:
+    name: 'actions/setup-node (with node-version-file: empty package.json)'
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      # clear the package.json
+      - run: 'echo "{}" > package.json'
       - uses: actions/setup-node@v3
         with:
           node-version-file: package.json
