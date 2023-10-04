@@ -34,6 +34,24 @@ jobs:
       - uses: wyvox/action-setup-pnpm@v3
       - run: node --version
 
+  bb:
+    name: 'wyvox/action-setup-pnpm (no volta config - new feature branch)'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # clear the package.json
+      - run: '"{}" > package.json'
+      - uses: wyvox/action-setup-pnpm@change-default-node-version-file-to-package.json
+      - run: node --version
+
+  bb:
+    name: 'wyvox/action-setup-pnpm (with volta config - new feature branch)'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: wyvox/action-setup-pnpm@change-default-node-version-file-to-package.json
+      - run: node --version
+
   c:
     name: 'wyvox/action'
     runs-on: ubuntu-latest
