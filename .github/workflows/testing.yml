@@ -8,12 +8,22 @@ on:
   pull_request: {}
 
 jobs:
-  a:
-    name: 'actions/setup-node'
+  aa:
+    name: 'actions/setup-node (default)'
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
+      - run: node --version
+
+  a:
+    name: 'actions/setup-node (with node-version-file: package.json)'
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: package.json
       - run: node --version
 
   b:
