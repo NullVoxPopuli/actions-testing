@@ -44,7 +44,7 @@ jobs:
       - uses: wyvox/action-setup-pnpm@change-default-node-version-file-to-package.json
       - run: node --version
 
-  bb:
+  bbb:
     name: 'wyvox/action-setup-pnpm (with volta config - new feature branch)'
     runs-on: ubuntu-latest
     steps:
